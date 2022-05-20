@@ -15,15 +15,13 @@ console.log('Привет дорогой друг, тебе необходимо
 
 process.on('SIGINT', function () {
   console.log('Всё, друг, пора прощаться!');
-  logger.end();
   process.exit();
 });
 
 process.stdin.on('data', function (key) {
-    // Метод trim() удаляет пробельные символы с начала и конца строки.
+  // Метод trim() удаляет пробельные символы с начала и конца строки.
   if (key.trim().toString() == 'exit') {
     console.log('Всё, друг, пора прощаться!');
-    logger.end();
     process.exit();
   }
   logger.write(`${key.trim().toString()}\n`);

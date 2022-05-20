@@ -20,6 +20,7 @@ process.on('SIGINT', function () {
 });
 
 process.stdin.on('data', function (key) {
+    // Метод trim() удаляет пробельные символы с начала и конца строки.
   if (key.trim().toString() == 'exit') {
     console.log('Всё, друг, пора прощаться!');
     logger.end();

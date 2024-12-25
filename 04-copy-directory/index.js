@@ -9,17 +9,14 @@ function callback(value) {
 }
 
 fs.readdir(fullPathToText, { withFileTypes: false }, (value, files) => {
-  // Метод fs.readdir() используется для асинхронного чтения содержимого данного каталога. Обратный вызов этого метода возвращает массив всех имен файлов в каталоге.  
   if (value) {
     console.log(value);
   } else {
-    fs.access(__dirname + '/files-copy', (coppie) => {
-    // Метод fs.access() используется для проверки прав доступа к данному файлу или каталогу. 
-      if (coppie) {
-        fs.mkdir(__dirname + '/files-copy', (coppie) => {
-        // Метод fs.mkdir() в Node.js используется для асинхронного создания 
-            if (coppie) {
-                console.log(coppie);
+    fs.access(__dirname + '/files-copy', (copy) => {
+      if (copy) {
+        fs.mkdir(__dirname + '/files-copy', (copy) => {
+            if (copy) {
+              console.log(copy);
             } else {
                 files.forEach((file) => {
                 fs.copyFile(
